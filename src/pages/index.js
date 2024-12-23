@@ -34,12 +34,13 @@ export default function Home() {
       .then((response) => response.json())
       .then((data) => {
         setData(parseData(data));
-        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+      })
+      .finally(() => {
         setIsLoading(false);
-      });
+      })
   }, []);
  
 
